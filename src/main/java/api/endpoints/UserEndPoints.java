@@ -19,29 +19,29 @@ public class UserEndPoints {
        return response;
     }
 
-    public static Response readUser(String userName){
+    public static Response readUser(int  id){
         Response response=given()
-                .pathParam("username",userName)
+                .pathParam("id",id)
                 .when()
                 .get(Routes.getUrl);
 
         return response;
     }
 
-    public static Response updateUser(String userName, User payload){
+    public static Response updateUser(int id, User payload){
         Response response=given().contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .body(payload)
-                .pathParam("username",userName)
+                .pathParam("id",id)
                 .when()
                 .put(Routes.updateUrl);
 
         return response;
     }
 
-    public static Response deleteUser(String userName){
+    public static Response deleteUser(int id){
         Response response=given()
-                .pathParam("username",userName)
+                .pathParam("id",id)
                 .when()
                 .delete(Routes.deleteUrl);
 
